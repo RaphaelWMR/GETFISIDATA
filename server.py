@@ -1,10 +1,13 @@
-from flask import Flask
+from flask import Flask, render_template
 from app import buscar_por_columna
 from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
 
+@app.route("/")
+def index():
+    return render_template("index.html")
 # Ruta para obtener datos por ID
 @app.route('/datos/<int:id>', methods=['GET'])
 def obtener_datos_por_id(id):
