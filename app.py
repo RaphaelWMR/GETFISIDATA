@@ -2,7 +2,7 @@ import pandas as pd
 import json
 # Leer el archivo Excel
 df = pd.read_excel('./source/dataFISI.xlsx')
-columna_id = 'CODIGO'
+columna_id = 'alumno_codigo'
 
 def buscar_por_columna(identificador):
     # Buscar la fila que coincide con el ID
