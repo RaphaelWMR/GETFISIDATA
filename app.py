@@ -15,4 +15,4 @@ def buscar_por_columna(identificador):
             return json.dumps(json_obj[0])
     # Si no se encuentra ningún resultado, devolver una fila vacía con los nombres de columna correctos
     fila_vacia = {columna: None if columna != columna_id else '' for columna in df.columns}
-    return json.dumps(fila_vacia)
+    return json.dumps([fila_vacia])

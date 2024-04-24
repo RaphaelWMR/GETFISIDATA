@@ -1,8 +1,9 @@
 from flask import Flask
 from app import buscar_por_columna
+from flask_cors import CORS
 
 app = Flask(__name__)
-
+CORS(app)
 
 # Ruta para obtener datos por ID
 @app.route('/datos/<int:id>', methods=['GET'])
@@ -12,4 +13,6 @@ def obtener_datos_por_id(id):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    _port = 5000
+    app.run(debug=False, host="0.0.0.0", port=_port)
+    print(f"Servidor flask corriendo en http://{ip_address}:{_port}")
