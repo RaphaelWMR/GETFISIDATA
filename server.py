@@ -2,6 +2,9 @@ from flask import Flask, render_template
 from app import buscar_por_columna
 from flask_cors import CORS
 import socket
+import os
+from dotenv import load_dotenv
+
 
 app = Flask(__name__)
 CORS(app)
@@ -15,9 +18,13 @@ def obtener_datos_por_id(id):
     resultado = buscar_por_columna(id)
     return resultado
 
+# DOTENV
+load_dotenv()
+
 
 if __name__ == '__main__':
-    _port = 5000
+    _port = os.getenv('PORT')
+    _host = os.getenv('HOST')
     ip_address = socket.gethostbyname(socket.gethostname())
-    app.run(debug=False, host="0.0.0.0", port=_port)
+    app.run(debug=False, host=_host, port=_port)
     print(f"Servidor flask corriendo en http://{ip_address}:{_port}")
