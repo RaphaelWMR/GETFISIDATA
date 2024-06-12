@@ -28,7 +28,11 @@ def buscar_por_columna(identificador):
 
 
 app = Flask(__name__)
-CORS(app)
+
+
+# Configurar CORS para permitir solo dominios específicos
+trusted_origins = ["https://raphaelwmr.github.io/BienestarConnect_FRONTEND/"]
+CORS(app, resources={r"/*": {"origins": trusted_origins}})
 
 
 @app.route("/")
