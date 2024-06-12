@@ -31,7 +31,11 @@ app = Flask(__name__)
 
 
 # Configurar CORS para permitir solo dominios específicos
-trusted_origins = ["https://raphaelwmr.github.io/BienestarConnect_FRONTEND/"]
+trusted_origins = [
+    "https://raphaelwmr.github.io/BienestarConnect_FRONTEND/",
+    "https://raphaelwmr.github.io/",
+    "https://raphaelwmr.github.io/BienestarConnect_FRONTEND/alumnos/add"
+]
 CORS(app, resources={r"/*": {"origins": trusted_origins}})
 
 
